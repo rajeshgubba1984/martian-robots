@@ -33,5 +33,11 @@ class RobotsApplicationTests {
 		
 		Assertions.assertTrue(output.containsAll(expected));
 	}
+	
+	@Test
+	void testInput3() throws IOException, URISyntaxException {
+		List<String> output =  RobotProcessorService.process("test2.txt");
+		Assertions.assertTrue(output.contains("0 0 S LOST"));
+	}
 
 }
