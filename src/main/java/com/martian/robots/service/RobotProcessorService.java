@@ -50,6 +50,16 @@ public class RobotProcessorService {
 		return output;
 	}
 	
+	
+	/**
+	 * Process single robot
+	 * @param coordinates
+	 * @param initialPosition
+	 * @param orientation
+	 * @param instructions
+	 * @param lostPositions
+	 * @return
+	 */
 	private static String processRobot(List<Integer> coordinates, List<Integer> initialPosition, String orientation, char[] instructions, List<String> lostPositions) {
 		
 		String result = "";
@@ -77,7 +87,7 @@ public class RobotProcessorService {
 				
 				isLost = checkIfThePositionLost(lostPositions, (initialPosition.get(0)-left+right) + " " + (initialPosition.get(1)+up-down) + " " + orientation);
 				if(isLost) {
-					//System.out.println("skip");
+					System.out.println("skip");
 					continue;
 				}
 				
@@ -101,6 +111,8 @@ public class RobotProcessorService {
 					break;
 				}
 				
+				//System.out.println("R-"+right+" L-"+left);
+				//System.out.println("U-"+up+" D-"+down);
 				
 				if((initialPosition.get(0)-left+right)>coordinates.get(0)) {
 					result = (initialPosition.get(0)-left+right-1) + " " + (initialPosition.get(1)+up-down) + " " + orientation + " LOST";
