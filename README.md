@@ -54,3 +54,13 @@ LLFFFLFLFL<br/><br/>
 1 1 E<br/>
 3 3 N LOST<br/>
 2 3 S
+
+# Instructions to run the solution
+1. Import the maven project into eclipse <br/>
+2. Open the file **RobotProcessorService.java** & run as Java Application.<br/>
+3. To modify any input, update the **input.txt** under **src/resources** folder, then run the Java program.<br/>
+
+
+# Developer Comments:
+- Created this as springboot project to extend/enhance for future.
+
