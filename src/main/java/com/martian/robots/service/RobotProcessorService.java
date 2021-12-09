@@ -15,8 +15,13 @@ public class RobotProcessorService {
 
 	public static void main(String[] args) throws IOException, URISyntaxException {
 		
-		
-		List<String> input = readLinesFromInputFile("input.txt");
+		process("input.txt");
+			    
+	}
+	
+	public static List<String> process(String filename)  throws IOException, URISyntaxException {
+		List<String> input = readLinesFromInputFile(filename);
+		List<String> output = new ArrayList<String>();
 		
 		//This can also be replaced with simple int[]
 		List<Integer> coordinates = new ArrayList<>();
@@ -36,14 +41,13 @@ public class RobotProcessorService {
 			char[] instructions = input.get(i+1).toCharArray();
 			
 			
+			
 			String res = processRobot(coordinates, initialPosition, orientation, instructions, lostPositions);
 			System.out.println(res);
+			output.add(res);
 			
 		}
-		
-		
-	    
-			    
+		return output;
 	}
 	
 	private static String processRobot(List<Integer> coordinates, List<Integer> initialPosition, String orientation, char[] instructions, List<String> lostPositions) {
@@ -73,7 +77,7 @@ public class RobotProcessorService {
 				
 				isLost = checkIfThePositionLost(lostPositions, (initialPosition.get(0)-left+right) + " " + (initialPosition.get(1)+up-down) + " " + orientation);
 				if(isLost) {
-					System.out.println("skip");
+					//System.out.println("skip");
 					continue;
 				}
 				
@@ -130,8 +134,8 @@ public class RobotProcessorService {
 	}
 
 	private static boolean checkIfThePositionLost(List<String> lostPositions, String string) {
-		System.out.println(lostPositions);
-		System.out.println("----->  "+string);
+		//System.out.println(lostPositions);
+		//System.out.println("----->  "+string);
 		return lostPositions.contains(string);
 	}
 
